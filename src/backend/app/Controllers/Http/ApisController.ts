@@ -21,17 +21,17 @@ export default class ApisController {
     static async insert_configuration(request: Request, response: Response){
         const { key, value } = request.body;
 
-        const checkIfExist = await Configuration.findBy({ key });
-        //checheck muna kung existing para hindi magkaduplicates
-        console.log(checkIfExist);
+        // const checkIfExist = await Configuration.findBy({ key });
+        // checheck muna kung existing para hindi magkaduplicates
+        // console.log(checkIfExist);
         
-        if(checkIfExist){
-            response.status(400);
-            return response.json({
-                status: 0,
-                message: "Configuration already exists!"
-            });
-        } 
+        // if(checkIfExist){
+        //     response.status(400);
+        //     return response.json({
+        //         status: 0,
+        //         message: "Configuration already exists!"
+        //     });
+        // } 
 
         //iinsert na kapag ok na
         await Configuration.insert({key, value});
